@@ -1,6 +1,7 @@
 rm(list=ls())
 library(tidyverse)
 library(rvest)
+library(summarytools)
 
 # 年俸等のデータ
 # 広島 https://baseball-data.com/ranking-salary/c/
@@ -99,5 +100,5 @@ dat1 %>% full_join(.,full_join(dat2,dat3,by=c("選手名","team","試合","背�
   rename(セーブ=セlブ,
             ホールド=ホlルド) -> baseball
 
-write_csv(baseball,path = "baseball.csv")
-rm(list=ls())
+# write_csv(baseball,path = "baseball.csv")
+# rm(list=ls())
