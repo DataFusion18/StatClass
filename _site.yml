@@ -4,6 +4,10 @@ navbar:
   left:
     - text: "ホーム"
       href: index.html
+    - text: "Lesson1"
+      href: yu_lesson1.html
+    - text: "Lesson2"
+      href: yu_lesson2.html
 output:
   html_document:
     theme: cosmo

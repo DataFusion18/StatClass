@@ -2,26 +2,14 @@
 title: "index"
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+# 8月9日；帰無仮説検定とベイズ推論
 
-## R Markdown
+  + 理論編；スライド
+  + [実践編](yu_lesson1.html)
+  
+# 8月10日；一般化線形モデルの推定
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+  + [コードなど](yu_lesson2.html)
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+# 8月11日；線形代数と尺度作成
 
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
