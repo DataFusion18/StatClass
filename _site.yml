@@ -1,0 +1,16 @@
+name: "山口大学2018年度夏期集中講義"
+navbar: 
+  title: "集中講義資料"
+  left:
+    - text: "ホーム"
+      href: index.html
+output:
+  html_document:
+    theme: cosmo
+    highlight: textmate
+    toc: true
+    toc_float:
+      collapse: false
+    df_print: "kable"
+    css: site_style.css
+output_dir: "YU_IN"
