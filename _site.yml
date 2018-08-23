@@ -1,13 +1,20 @@
-name: "山口大学2018年度夏期集中講義"
+name: "JSSP2018夏のチュートリアル"
 navbar: 
-  title: "集中講義資料"
+  title: "JSSP2018夏のチュートリアル"
   left:
     - text: "ホーム"
       href: index.html
     - text: "Lesson1"
-      href: yu_lesson1.html
+      href: jssp01.html
     - text: "Lesson2"
-      href: yu_lesson2.html
+      href: jssp02.html
+    - text: "Lesson3"
+      href: jssp03.html
+    - text: "Lesson4"
+      href: jssp04.html      
+    - text: "Lesson5"
+      href: jssp05.html
+
 output:
   html_document:
     theme: cosmo
@@ -17,4 +24,4 @@ output:
       collapse: false
     df_print: "kable"
     css: site_style.css
-output_dir: "YU_IN"
+output_dir: "docs"

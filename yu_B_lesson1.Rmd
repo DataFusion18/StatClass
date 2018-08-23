@@ -1,0 +1,172 @@
+---
+title: "心理学統計法2日目"
+---
+
+# 四則演算
+```{r}
+1+2
+2-3
+3*4
+4/5
+(2+3)/4
+(2+3)/(5-3)
+```
+
+# 関数の利用
+```{r}
+sqrt(16)
+help(sqrt)
+```
+
+
+# ベクトルをつかう
+```{r}
+bsj <- c(5,6,7,8)
+bsj
+BSJ <- 1:4
+BSJ
+bsj + 2
+BSJ * 2
+mean(bsj)
+sd(BSJ)
+bsj + BSJ
+cor(bsj, BSJ)
+```
+
+# 行列型のデータ
+
+```{r}
+bsj2 <- matrix(1:10,ncol=2,nrow=5)
+bsj2
+bsj3 <- matrix(1:10,ncol=2,nrow=5,byrow=TRUE)
+bsj3
+```
+
+```{r}
+bsj3[1,]
+bsj3[,1]
+bsj3[1,2]
+```
+
+
+
+# データフレーム型の例
+```{r}
+bsj.df <- as.data.frame(bsj2)
+bsj.df
+bsj.df[,2]
+bsj.df$V1
+```
+
+
+# Rのもつサンプルデータ
+```{r}
+data(iris)
+summary(iris)
+```
+
+# 構造を見る
+```{r}
+str(iris)
+```
+
+# Factor型は特殊
+```{r}
+summary(iris$Species)
+iris$Species
+```
+
+# list型
+```{r}
+BSJ.list <- list(
+  names = c("Taro","Hanako","Yoshio","Keiko","Teppei"),
+  ID = 1:20,
+  height = c(160,150,170,166,132),
+  values = matrix(1:100,nrow=20)
+)
+```
+
+# パッケージを使う
+```{r}
+# データ整形汎用パッケージ
+library(tidyverse)
+# データ要約・可視化パッケージ
+library(summarytools)
+# 描画の際に文字化けするMacユーザは次の行のコメントアウトをとって実行する
+old = theme_set(theme_gray(base_family = "HiraKakuProN-W3"))
+```
+
+
+# 外部ファイルの読み込みも
+```{r}
+bs <- read_csv("baseball.csv") %>% mutate(Name = as.factor(Name), 
+                                          team = as.factor(team), 
+                                          position = as.factor(position), 
+                                          bloodType = as.factor(bloodType), 
+                                          throw.by = as.factor(throw.by), 
+                                          batting.by = as.factor(batting.by))
+view(dfSummary(bs))
+```
+
+# 相関係数の検定(実際)
+
+## データがないのでそれっぽいのを作って実行
+```{r}
+library(MASS)
+mu <- c(0,0)
+SIG <- matrix(c(1,0.8,0.8,1),ncol=2)
+N <- 11
+X <- mvrnorm(N,mu,SIG,empirical = TRUE)
+X
+```
+
+## 相関係数は
+```{r}
+cor(X)
+```
+
+## 相関係数の検定は
+```{r}
+psych::corr.test(X)
+```
+
+# 適合度の検定
+```{r}
+character <- c(72,48,24,16)
+chisq.test(character)
+```
+
+## クロス表の検定
+```{r}
+cross <- matrix(c(90,60,40,60),ncol=2)
+cross
+chisq.test(cross,correct = F)
+```
+
+## 平均値の差の検定
+```{r}
+groupA <- c(30,50,70,90,60,50,70,60)
+groupB <- c(20,40,60,40,40,50,40,30)
+t.test(groupA,groupB,var.equal = T)
+
+```
+
+## 対応のある2群
+```{r}
+x1 <- c(20,44,55,62,50,48,60,45)
+x2 <- c(30,56,68,70,55,64,60,37)
+t.test(x2,x1,paired = TRUE)
+```
+
+## Welchの補正
+```{r}
+x1 <- c(45,55,70,75,60,50,65,60)
+x2 <- c(10,20,70,20,060,60,20,60)
+t.test(x1,x2)
+```
+
+### 補正なしと比較
+```{r}
+t.test(x1,x2,var.equal = TRUE)
+```
+

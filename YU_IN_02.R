@@ -29,7 +29,7 @@ bs <- read_csv("baseball.csv") %>% mutate(Name = as.factor(Name),
                                           throw.by = as.factor(throw.by), 
                                           batting.by = as.factor(batting.by))
 view(dfSummary(bs))
-
+dfSummary(bs)
 bs %>% filter(position != "投手") %>% 
   dplyr::select(salary,years, height, weight) %>% ggpairs()
 
